@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}{% endblock %}
+{% block body %}
+    {{ form_start(form) }}
+    <div class="form-group">
+        <label for="name">Name:</label>
+        {{ form_widget(form.name,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Task name'
+            }
+        }) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.name) }}
+        </div>
+    </div>
+    <input type="submit" name="category_create" value="Create" class="btn btn-primary"/>
+
+    <ul>
+    <li>
+        <a href="{{ path('category_index') }}">Back to the list</a>
+    </li>
+    </ul>
+    {{ form_end(form) }}
+{% endblock %}

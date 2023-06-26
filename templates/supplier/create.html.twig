@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}{% endblock %}
+{% block body %}
+    {{ form_start(form) }}
+    <div class="form-group">
+        <label for="name">Name:</label>
+        {{ form_widget(form.name,{
+            'attr':{
+                'class':'form-control',
+                'style': 'width: 10%; margin-top: 10px; margin-bottom: 5px;',
+                'placeholder': 'Task name'
+            }
+        }) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.name) }}
+        </div>
+    </div>
+    <input type="submit" name="supplier_create" value="Create" class="btn btn-primary"/>
+
+    <ul style='list-style: none;'>
+    <li>
+        <a href="{{ path('supplier_index') }}">Back to the list</a>
+    </li>
+    </ul>
+    {{ form_end(form) }}
+{% endblock %}
